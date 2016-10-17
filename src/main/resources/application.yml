@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    platform: h2
+    initialize: false
+  jpa:
+    show-sql: true
+
+logging:
+  level:
+    scala: debug

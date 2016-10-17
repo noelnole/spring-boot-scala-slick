@@ -1,0 +1,32 @@
+== Slick with Spring Boot and  Scala
+
+This project is simple sample about how use Slick with Scala and Spring Boot
+
+Instead of use maven or gradle, I use sbt (tool for scala) with the necesarie dependencies.
+
+=== Description ===
+
+This project is a simple sample of the use of slick with spring boot. Slick has several features, althought
+in this sample I just use some features of slick.
+I use *Await* and *DBIO*, the first of them you shouldn't do in a real application because block the current
+thread and wait for the database result.
+
+This sample has two entities Car and Person with a CRUD, and the information will be returned in two controllers.
+
+Car and person's information will be saved in a database in memory as H2, in the started of spring boot a person
+and a car will be saved in two tables (person and car)
+
+You can have a look into the code, and if you see any improve (surely yes), please do a pull request, thank you!
+
+
+=== Run
+
+```
+$ sbt run
+```
+
+```
+$ java -jar
+```
+
+
