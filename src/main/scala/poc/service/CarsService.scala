@@ -98,10 +98,12 @@ class CarsService {
     *
     * @return car
     */
-  def saveCarWithDBIO(car : Car) : Car = {
+  def saveCarWithDBIO(car : Car) : Unit = {
     val insert = DBIO.seq(cars +=car)
-    val createDatabase = DBIO.seq(insert)
-    return car
+    Await.result(
+      db.run(insert).map{
+        car => car
+      }, timeout)
   }
 
   /**
