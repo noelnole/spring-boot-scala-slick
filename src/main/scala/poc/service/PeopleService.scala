@@ -85,10 +85,13 @@ class PeopleService {
     * @param person
     * @return
     */
-  def savePersonWithDBIO(person : Person) : Person = {
-    val insert = DBIO.seq(people +=person)
-    val createDatabase = DBIO.seq(insert)
-    return person
+  def savePersonWithDBIO(person : Person) : Unit = {
+    val insert = DBIO.seq(people +=person)    
+     Await.result(
+      db.run(insert).map {
+        person => person
+      }, timeout)
+   
   }
 
   /**
