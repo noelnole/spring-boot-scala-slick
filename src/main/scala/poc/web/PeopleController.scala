@@ -13,6 +13,7 @@ import poc.service.PeopleService
   */
 
 @RestController
+@RequestMapping(value = Array("/people"))
 class PeopleController @Autowired() (private val peopleService : PeopleService){
 
 
